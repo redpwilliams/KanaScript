@@ -1,4 +1,4 @@
-#include "KSUtil.hpp"
+#include "Util.hpp"
 #include <string>
 #include <algorithm>
 
@@ -13,9 +13,10 @@ bool isValidKanaKanji(const std::string& str)
 {
     auto isValidChar = [&](char c) {
         // Check if character falls within a valid range
-        return !(isalnum(c) && (str.find_first_of(validHiraganaRange) == std::string::npos &&
-            str.find_first_of(validKatakanaRange) == std::string::npos &&
-            str.find_first_of(validKanjiRange) == std::string::npos));
+        return !(isalnum(c) && (
+                str.find_first_of(validHiraganaRange) == std::string::npos &&
+                str.find_first_of(validKatakanaRange) == std::string::npos &&
+                str.find_first_of(validKanjiRange) == std::string::npos));
     };
 
     // Use std::all_of to check all characters

@@ -1,12 +1,29 @@
 #include <iostream>
-#include "KSUtil.cpp"
+#include <fstream>
+#include <string>
+#include "Util.hpp"
+#include "Lexer.hpp"
 
-int main()
+int main(int argc, char* argv[])
 {
-    std::cout << "Hello, World!" << std::endl;
-    std::cout << isValidKanaKanji("重ねる") << std::endl;
-    std::cout << isValidKanaKanji("る") << std::endl;
-    std::cout << isValidKanaKanji("t") << std::endl;
+    if (argc != 2) {
+        std::cerr << "Error: Invalid number of arguments." << std::endl;
+        std::cerr << "Usage: kanascript <source_file>" << std::endl;
+        return 1;
+    }
+
+    std::ifstream sourceFile(argv[1]);
+    if (!sourceFile.is_open()) {
+        std::cerr << "Error: Could not open source file: " << argv[1] << std::endl;
+        return 1;
+    }
+
+    Lexer lex;
+    std::string line;
+    while (getline(sourceFile, line)) {
+       lex.tokenize(line);
+    }
+    sourceFile.close();
     return 0;
 }
 

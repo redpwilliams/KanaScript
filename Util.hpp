@@ -1,5 +1,5 @@
-#ifndef KSUtil_HPP
-#define KSUtil_HPP
+#ifndef KANASCRIPT_UTIL_HPP
+#define KANASCRIPT_UTIL_HPP
 
 #include <locale>
 #include <string>
@@ -8,4 +8,4 @@ using namespace std;
 
 bool isValidKanaKanji(const string &input);
 
-#endif
+#endif // KANASCRIPT_UTIL_HPP
