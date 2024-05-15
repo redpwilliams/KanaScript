@@ -1,28 +1,55 @@
 #include "KSUtil.hpp"
 #include <string>
+#include <algorithm>
 
 using namespace std;
 
-bool isValidKanaKani(const string &input)
+// Define valid character ranges (adjust as needed)
+const std::string validHiraganaRange = "\u3040-\u309F";
+const std::string validKatakanaRange = "\u30A0-\u30FF";
+const std::string validKanjiRange = "\u4E00-\u9FFF";
+
+bool isValidKanaKanji(const std::string &str)
 {
-  std::setlocale(LC_ALL, ""); // Set locale for proper character classification
-
-  // Convert string to wstring for easier character handling
-  std::wstring wstr(input.begin(), input.end());
-
-  const std::wstring validHiraganaRange = L"\u3040-\u309F"; // Hiragana characters
-  const std::wstring validKatakanaRange = L"\u30A0-\u30FF"; // Katakana characters
-  const std::wstring validKanjiRange = L"\u4E00-\u9FFF";    // Common Kanji range
-
-  for (auto c : wstr)
+  for (auto c : str)
   {
-    if (!iswalnum(c) && // Check for alphanumeric characters (avoid Romaji)
-        !(wstr.find(validHiraganaRange, c) != std::string::npos ||
-          wstr.find(validKatakanaRange, c) != std::string::npos ||
-          wstr.find(validKanjiRange, c) != std::string::npos))
+    // Check for alphanumeric characters (avoid Romaji)
+    if (isalnum(c))
     {
-      return false; // Invalid character found
+      return false;
+    }
+
+    // Check if character falls within a valid range
+    if (str.find_first_of(validHiraganaRange) == std::string::npos &&
+        str.find_first_of(validKatakanaRange) == std::string::npos &&
+        str.find_first_of(validKanjiRange) == std::string::npos)
+    {
+      return false;
     }
   }
+
+  // If all characters are valid, return true
   return true;
 }
+
+bool isAlt(const std::string& str)
+{
+    auto isValidChar = [&](char c) {
+        if (isalnum(c))
+        {
+            return false;
+        }
+
+        // Check if character falls within a valid range
+        if (str.find_first_of(validHiraganaRange) == std::string::npos &&
+            str.find_first_of(validKatakanaRange) == std::string::npos &&
+            str.find_first_of(validKanjiRange) == std::string::npos)
+        {
+            return false;
+        }
+        return true;
+    };
+
+    // Use std::all_of to check all characters
+    return std::all_of(str.begin(), str.end(), isValidChar);
+        };

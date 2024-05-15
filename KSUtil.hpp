@@ -7,6 +7,7 @@
 
 using namespace std;
 
-bool isValidKanaKani(const string &input);
+bool isValidKanaKanji(const string &input);
+bool isAlt(const string &input);
 
 #endif
