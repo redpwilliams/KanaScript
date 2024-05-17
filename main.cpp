@@ -17,12 +17,15 @@ int main(int argc, char* argv[])
         return 1;
     }
 
-    Lexer lex;
     std::string line;
     while (getline(sourceFile, line)) {
-       lex.tokenize(line);
+       Lexer::tokenize(line);
     }
     sourceFile.close();
+
+    std::string ex{"書く"};
+    Token t(Token::TokenType::KEYWORD, ex.substr(0, 2));
+    printToken(t);
     return 0;
 }
 

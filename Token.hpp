@@ -1,23 +1,24 @@
 #ifndef KANASCRIPT_TOKEN_HPP
 #define KANASCRIPT_TOKEN_HPP
 
-enum class TokenType  {
-    Keyword,
-    Identifier,
-    Operator,
-    Separator,
-    Literal
+#include <iostream>
+#include <string>
+#include <utility>
+
+struct Token {
+    enum class TokenType {
+        KEYWORD,
+        STRING,
+        SYMBOL,
+    };
+
+    TokenType type;
+    std::string value;
+
+    Token(TokenType type, std::string  value) :
+            type(type), value(std::move(value)) {}
 };
 
-class Token {
-private:
-    TokenType _type;
+void printToken(const Token& t);
 
-public:
-    /**
-     * Returns the TokenType/Type of Token this object represents.
-     * @return This token's TokenType.
-     */
-    [[nodiscard]] TokenType getType() const;
-};
 #endif //KANASCRIPT_TOKEN_HPP

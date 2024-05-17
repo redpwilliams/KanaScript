@@ -1,5 +1,8 @@
 #include "Token.hpp"
+#include <iostream>
 
-TokenType Token::getType() const {
-    return _type;
+using namespace std;
+
+void printToken(const Token& t) {
+    cout << t.value;
 }

@@ -7,3 +7,7 @@
 12	699	7376816577312320	CMakeFiles/KanaScript.dir/main.cpp.obj	e08b6ef026460062
 5	711	7376816577432302	CMakeFiles/KanaScript.dir/Lexer.cpp.obj	200f0b9092a763d1
 711	902	7376816579273482	KanaScript.exe	3f422475bc569f6f
+2	345	7376827964984203	CMakeFiles/KanaScript.dir/Token.cpp.obj	8c89e030e8880c10
+8	393	7376827965469577	CMakeFiles/KanaScript.dir/Lexer.cpp.obj	200f0b9092a763d1
+2	329	7376828102802994	CMakeFiles/KanaScript.dir/main.cpp.obj	e08b6ef026460062
+330	435	7376828103817309	KanaScript.exe	3f422475bc569f6f
