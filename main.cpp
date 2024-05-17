@@ -1,7 +1,6 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include "Util.hpp"
 #include "Lexer.hpp"
 
 int main(int argc, char* argv[])

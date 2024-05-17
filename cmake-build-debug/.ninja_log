@@ -1,9 +1,9 @@
 # ninja log v5
 3	468	7375066943592949	CMakeFiles/KanaScript.dir/main.cpp.obj	e08b6ef026460062
 24	149	7375064935396173	CMakeFiles/KanaScript.dir/Token.cpp.obj	8c89e030e8880c10
-468	593	7375066944795875	KanaScript.exe	5aae6122c70e3fc5
-10	498	7375065816717873	CMakeFiles/KanaScript.dir/Lexer.cpp.obj	200f0b9092a763d1
-4	520	7375067981214117	CMakeFiles/KanaScript.dir/Util.cpp.obj	efa2f7534dea1924
-521	657	7375067982514349	KanaScript.exe	3f422475bc569f6f
-5	502	7375070611733575	CMakeFiles/KanaScript.dir/Lexer.cpp.obj	200f0b9092a763d1
 503	652	7375070613163434	KanaScript.exe	3f422475bc569f6f
+5	502	7375070611733575	CMakeFiles/KanaScript.dir/Lexer.cpp.obj	200f0b9092a763d1
+4	520	7375067981214117	CMakeFiles/KanaScript.dir/Util.cpp.obj	efa2f7534dea1924
+12	699	7376816577312320	CMakeFiles/KanaScript.dir/main.cpp.obj	e08b6ef026460062
+5	711	7376816577432302	CMakeFiles/KanaScript.dir/Lexer.cpp.obj	200f0b9092a763d1
+711	902	7376816579273482	KanaScript.exe	3f422475bc569f6f
