@@ -12,7 +12,7 @@ void Lexer::tokenize(std::string& input) {
 
 // Loop using iterators
     while (it != end) {
-        std::cout << *it << std::endl;
+        std::cout << *it ;
         std::advance(it, 1); // Move the iterator to the next character (multi-byte aware)
     }
 }

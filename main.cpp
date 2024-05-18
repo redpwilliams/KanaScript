@@ -4,6 +4,8 @@
 #include <cstring>
 #include <cstdint>
 #include "Lexer.hpp"
+#include <io.h>
+#include <fcntl.h>
 #include "lib/utf8/checked.h"
 
 int main(int argc, char* argv[])
@@ -20,6 +22,8 @@ int main(int argc, char* argv[])
         return 1;
     }
 
+//    _setmode(_fileno(stdout), _O_U16TEXT);
+
     std::string line;
     while (getline(sourceFile, line)) {
        Lexer::tokenize(line);
@@ -30,7 +34,7 @@ int main(int argc, char* argv[])
     Token t(Token::TokenType::KEYWORD, ex.substr(0, 2));
     printToken(t);
 
-    std::cout << "Is valid? " << utf8::is_valid(ex) << std::endl;
+    std::cout << "\nIs valid? " << utf8::is_valid(ex) << std::endl;
 
     char* str = (char*)ex.c_str();    // utf-8 string
     char* str_i = str;                  // string iterator
