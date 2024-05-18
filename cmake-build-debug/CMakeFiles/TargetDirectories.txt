@@ -1,5 +1,0 @@
-C:/Users/redexe/Projects/Local/KanaScript/cmake-build-debug/CMakeFiles/KanaScript.dir
-C:/Users/redexe/Projects/Local/KanaScript/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/redexe/Projects/Local/KanaScript/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-C:/Users/redexe/Projects/Local/KanaScript/cmake-build-debug/lib/CMakeFiles/edit_cache.dir
-C:/Users/redexe/Projects/Local/KanaScript/cmake-build-debug/lib/CMakeFiles/rebuild_cache.dir
