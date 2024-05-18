@@ -22,10 +22,6 @@ func main() {
 		os.Exit(1)
 	}
 
-	//for i, r := range s {
-	//	fmt.Printf("%d: %c\n", i, r)
-	//}
-
 	// File I/O (basic example)
 	file, _ := os.Open(os.Args[1])
 	defer func(file *os.File) {
@@ -37,18 +33,20 @@ func main() {
 
 	r := bufio.NewReader(file)
 
-	// Section 2
+	// Lexing
+	var lex Lexer
+
 	for {
 		line, _, err := r.ReadLine()
 		if len(line) > 0 {
-			Tokenize(string(line))
+			lex.Tokenize(string(line))
 		}
 		if err != nil {
 			break
 		}
 	}
 
-	tokens := GetTokens()
+	tokens := lex.tokens
 	fmt.Println(tokens)
 
 }
