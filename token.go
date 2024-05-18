@@ -8,7 +8,7 @@ type Token struct {
 type TokenType int
 
 const (
-	Keyword    TokenType = iota // Kanji character
+	Kaku       TokenType = iota // Kanji character
 	Identifier                  // <variable name>
 	String                      // 「<string>」
 	// Whitespace QuotationLeft   <--?? goland sux //「
