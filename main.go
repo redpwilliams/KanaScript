@@ -1,6 +1,7 @@
 package main
 
 import (
+	"KanaScript/lexer"
 	"bufio"
 	"fmt"
 	"os"
@@ -43,11 +44,14 @@ func main() {
 	for {
 		line, _, err := r.ReadLine()
 		if len(line) > 0 {
-			fmt.Printf("ReadLine: %q\n", line)
+			lexer.Tokenize(string(line))
 		}
 		if err != nil {
 			break
 		}
 	}
+
+	tokens := lexer.GetTokens()
+	fmt.Println(tokens)
 
 }
