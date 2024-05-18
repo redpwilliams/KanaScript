@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"os"
 )
@@ -28,11 +29,25 @@ func main() {
 	//}
 
 	// File I/O (basic example)
-	data, err := os.ReadFile(os.Args[1])
-	if err != nil {
-		fmt.Println((fmt.Errorf("error: cannot read %s", os.Args[1])).Error(), err)
-		return
+	file, _ := os.Open(os.Args[1])
+	defer func(file *os.File) {
+		err := file.Close()
+		if err != nil {
+			fmt.Println(err.Error())
+		}
+	}(file)
+
+	r := bufio.NewReader(file)
+
+	// Section 2
+	for {
+		line, _, err := r.ReadLine()
+		if len(line) > 0 {
+			fmt.Printf("ReadLine: %q\n", line)
+		}
+		if err != nil {
+			break
+		}
 	}
 
-	fmt.Println(string(data))
 }
