@@ -1,7 +1,6 @@
 package main
 
 import (
-	"KanaScript/lexer"
 	"bufio"
 	"fmt"
 	"os"
@@ -23,8 +22,6 @@ func main() {
 		os.Exit(1)
 	}
 
-	//s := "成る [var] = value"
-
 	//for i, r := range s {
 	//	fmt.Printf("%d: %c\n", i, r)
 	//}
@@ -44,14 +41,14 @@ func main() {
 	for {
 		line, _, err := r.ReadLine()
 		if len(line) > 0 {
-			lexer.Tokenize(string(line))
+			Tokenize(string(line))
 		}
 		if err != nil {
 			break
 		}
 	}
 
-	tokens := lexer.GetTokens()
+	tokens := GetTokens()
 	fmt.Println(tokens)
 
 }
