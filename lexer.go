@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
 
 type Lexer struct {
 	tokens []Token
@@ -21,24 +24,25 @@ func (l *Lexer) Tokenize(input string) {
 			}
 			l.tokens = append(l.tokens, Token{input[start : i+len("」")], String})
 			i += len("」") - 1
-			fmt.Println("hg")
-			break
+		} else if NextTokenIs("=>", input, i) {
+			l.tokens = append(l.tokens, Token{input[i : i+len("=>")], AssignmentOutput})
+			i += len("=>") - 1
+		} else if NextTokenIs("[@]", input, i) {
+			l.tokens = append(l.tokens, Token{input[i : i+len("[@]")], Contact})
+			i += len("[@]") - 1
+		} else if NextTokenIs(" ", input, i) {
+			l.tokens = append(l.tokens, Token{input[i : i+len(" ")], Whitespace})
+			i += len(" ") - 1
+		} else {
+			fmt.Println("Unexpected character")
+			os.Exit(1)
 		}
-		//else if input[i:i+len("「")] == "「" {
-		//	i++
-		//	closed := false
-		//	for i < len(input) && !closed {
-		//		if input[i:i+len("」")] == "」" {
-		//			closed = true
-		//			l.tokens = append(l.tokens, Token{"test", String})
-		//		}
-		//		i++
-		//	}
-		//}
-
 	}
 
 }
 func NextTokenIs(token, input string, pos int) bool {
+	if pos+len(token) > len(input) {
+		return false
+	}
 	return input[pos:pos+len(token)] == token
 }
